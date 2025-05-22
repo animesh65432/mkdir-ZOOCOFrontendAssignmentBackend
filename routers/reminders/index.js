@@ -7,7 +7,7 @@ const { reminderValidation } = require("../../validators/reminderValidator.js")
 router.post("/create", reminderValidation, createReminder);
 router.get("/getAll", getAllReminders);
 router.get("/get/:id", getReminderById);
-router.put("/update/:id", reminderValidation, updateReminder);
+router.put("/update/:id", updateReminder);
 router.delete("/delete/:id", deleteReminder);
 router.put("/complete/:id", makeremindercompleted)
 
