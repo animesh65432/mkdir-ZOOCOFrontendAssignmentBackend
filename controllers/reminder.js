@@ -57,10 +57,25 @@ const deleteReminder = async (req, res) => {
     }
 };
 
+const makeremindercompleted = async () => {
+    try {
+        const updated = await Reminder.findByIdAndUpdate(req.params.id, {
+            status: "completed"
+        }, {
+            new: true,
+            runValidators: true,
+        });
+        if (!updated) return res.status(404).json({ error: "Reminder not found" });
+        res.status(200).json(updated);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+}
 module.exports = {
     createReminder,
     getAllReminders,
     getReminderById,
     updateReminder,
     deleteReminder,
+    makeremindercompleted
 };
