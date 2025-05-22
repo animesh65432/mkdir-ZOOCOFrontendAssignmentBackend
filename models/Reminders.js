@@ -25,7 +25,7 @@ const reminderSchema = new mongoose.Schema({
     },
     endDateTime: {
         type: Date,
-        required: true,
+        required: false,
     },
     frequency: {
         type: String,
