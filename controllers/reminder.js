@@ -57,7 +57,7 @@ const deleteReminder = async (req, res) => {
     }
 };
 
-const makeremindercompleted = async () => {
+const makeremindercompleted = async (req, res) => {
     try {
         const updated = await Reminder.findByIdAndUpdate(req.params.id, {
             status: "completed"
